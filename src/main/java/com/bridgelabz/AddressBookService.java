@@ -15,6 +15,7 @@ public class AddressBookService{
 				connection = DriverManager.getConnection(jdbcUrl, userName, password);
 				System.out.println("Connection done...");
 				Statement statement = connection.createStatement();
+				statement.execute("UPDATE addressbook SET type='Devloper' WHERE firstName= 'Yogesh'" );
 				ResultSet resultSet = statement.executeQuery("Select * from addressbook");
 
 				while (resultSet.next()) {
