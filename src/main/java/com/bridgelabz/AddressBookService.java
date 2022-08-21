@@ -16,9 +16,9 @@ public class AddressBookService{
 			connection = DriverManager.getConnection(jdbcUrl, userName, password);
 			System.out.println("Connection done");
 			Statement statement = connection.createStatement();
-			statement.execute("SELECT city,COUNT(city) ascount from addressbook group by city ");
-			statement.execute("UPDATE addressbook SET type='Devloper' WHERE firstName= 'Yogesh'" );
-
+			//statement.execute("SELECT city,COUNT(city) ascount from addressbook group by city ");
+			//statement.execute("UPDATE addressbook SET type='Devloper' WHERE firstName= 'Yogesh'" );
+			statement.execute(" INSERT INTO addressbook (firstName,lastName,address,city,state,zip,phoneNumber,email) VALUES('Pulkit','Chopra','Gandhi nagar','Rampura','MP','394372','8899364334','pulkit@gmail.com')");
 			ResultSet resultSet = statement.executeQuery("Select * from addressbook ");
 
 			while (resultSet.next()) {
