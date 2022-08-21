@@ -14,11 +14,12 @@ public class AddressBookService{
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			System.out.println("Driver loaded");
 			connection = DriverManager.getConnection(jdbcUrl, userName, password);
-			System.out.println("Connection done...");
+			System.out.println("Connection done");
 			Statement statement = connection.createStatement();
+			statement.execute("SELECT city,COUNT(city) ascount from addressbook group by city ");
 			statement.execute("UPDATE addressbook SET type='Devloper' WHERE firstName= 'Yogesh'" );
 
-			ResultSet resultSet = statement.executeQuery("Select * from addressbook where city='Shahada'");
+			ResultSet resultSet = statement.executeQuery("Select * from addressbook ");
 
 			while (resultSet.next()) {
 				System.out.println(resultSet.getString(1) + " " + resultSet.getString(2) + " " + resultSet.getString(3) + " " + resultSet.getString(4) + " " + resultSet.getString(5) + " " + resultSet.getString(6) + " " + resultSet.getString(7) + " " + resultSet.getString(8) + " " + resultSet.getString(9) );
